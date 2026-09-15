@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #e7efff;
+  background-image:
+    radial-gradient(circle at 8% 12%, rgba(19, 106, 255, 0.10) 0, transparent 40%),
+    radial-gradient(circle at 92% 88%, rgba(108, 189, 61, 0.12) 0, transparent 45%);
+  -webkit-font-smoothing: antialiased;
+  text-wrap: balance;
+}
+
+/* Melhora a acessibilidade de foco por teclado sem quebrar o visual em toques. */
+:focus-visible {
+  outline: 3px solid #136aff;
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
