@@ -46,6 +46,7 @@ export const PERFORMANCE_LEVELS: readonly PerformanceLevel[] = [
 ];
 
 export const SOCIAL_LINKS = {
-  instagram: '@clubedeprogramacaounifesspa',
+  instagramHandle: '@clubedeprogramacaounifesspa',
+  instagramUrl: 'https://www.instagram.com/clubedeprogramacaounifesspa/',
   youtube: 'youtube.com/@clubedeprogramacao',
 } as const;
