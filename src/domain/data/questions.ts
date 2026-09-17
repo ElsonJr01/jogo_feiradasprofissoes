@@ -5,12 +5,18 @@ import type { Question } from '@/types';
  *
  * Todo o conteúdo foi baseado na apresentação oficial do Clube de
  * Programação ("Criando os criadores do futuro"), usada na Feira das
- * Profissões. Escrito em linguagem simples, acessível tanto para
- * alunos do Ensino Fundamental quanto do Ensino Médio.
+ * Profissões, complementado com curiosidades gerais sobre tecnologia,
+ * lógica de programação e carreira. Escrito em linguagem simples,
+ * acessível tanto para alunos do Ensino Fundamental quanto do Ensino
+ * Médio.
+ *
+ * Total: 50 perguntas. A cada partida, `QuizService` sorteia um
+ * subconjunto (ver `GAME_CONFIG.QUESTIONS_PER_ROUND`).
  */
 export const QUESTIONS: readonly Question[] = [
+  // ── Algoritmos e lógica de programação ─────────────────────────────
   {
-    id: 'q1-algoritmo',
+    id: 'q01-algoritmo',
     category: 'algoritmos',
     prompt: 'O que é um algoritmo?',
     options: [
@@ -24,7 +30,7 @@ export const QUESTIONS: readonly Question[] = [
       'Isso mesmo! Um algoritmo é como uma receita de bolo: uma sequência de passos que uma máquina pode seguir.',
   },
   {
-    id: 'q2-programacao',
+    id: 'q02-programacao',
     category: 'algoritmos',
     prompt: 'O que é "programação"?',
     options: [
@@ -38,16 +44,169 @@ export const QUESTIONS: readonly Question[] = [
       'Programar é escrever instruções que o computador entende e executa — é assim que jogos, apps e sites são criados.',
   },
   {
-    id: 'q3-eniac-nome',
+    id: 'q03-bug',
+    category: 'algoritmos',
+    prompt: 'O que é um "bug" na programação?',
+    options: [
+      'Um novo recurso do programa',
+      'Um erro no código',
+      'Um tipo de vírus biológico',
+      'O nome de uma linguagem de programação',
+    ],
+    correctOptionIndex: 1,
+    funFact:
+      'O termo "bug" (inseto, em inglês) ficou famoso depois que um inseto de verdade causou um erro em um computador antigo!',
+  },
+  {
+    id: 'q04-debug',
+    category: 'algoritmos',
+    prompt: 'O que significa "debugar" um programa?',
+    options: [
+      'Apagar o programa inteiro',
+      'Encontrar e corrigir erros no código',
+      'Traduzir o programa para outro idioma',
+      'Deixar o computador mais rápido',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Debugar é parte do dia a dia de quem programa: todo mundo erra, o segredo é saber corrigir.',
+  },
+  {
+    id: 'q05-loop',
+    category: 'algoritmos',
+    prompt: 'Para que serve um "loop" (repetição) em um programa?',
+    options: [
+      'Para apagar dados',
+      'Para repetir uma ação várias vezes automaticamente',
+      'Para desligar o computador',
+      'Para criar uma senha',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Com um loop, o computador pode repetir uma tarefa milhares de vezes sem cansar!',
+  },
+  {
+    id: 'q06-variavel',
+    category: 'algoritmos',
+    prompt: 'Para que servem as "variáveis" em um programa?',
+    options: [
+      'Para guardar informações que podem mudar',
+      'Para deixar a tela colorida',
+      'Para conectar à internet',
+      'Para imprimir documentos',
+    ],
+    correctOptionIndex: 0,
+    funFact: 'Uma variável é como uma "caixinha" com nome, que guarda um valor que pode mudar durante o programa.',
+  },
+  {
+    id: 'q07-logica',
+    category: 'algoritmos',
+    prompt: 'O que é "lógica de programação"?',
+    options: [
+      'Um curso de matemática avançada',
+      'A forma de pensar para resolver problemas passo a passo',
+      'Um tipo de linguagem usada apenas por robôs',
+      'Uma marca de computador',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Antes de programar em qualquer linguagem, o mais importante é desenvolver a lógica para resolver problemas.',
+  },
+  {
+    id: 'q08-html',
+    category: 'algoritmos',
+    prompt: 'Qual "linguagem" é usada para dar estrutura às páginas da web?',
+    options: ['HTML', 'PDF', 'MP3', 'USB'],
+    correctOptionIndex: 0,
+    funFact: 'HTML organiza o conteúdo de um site: títulos, textos, imagens e links.',
+  },
+  {
+    id: 'q09-css',
+    category: 'algoritmos',
+    prompt: 'Para que serve o CSS em um site?',
+    options: [
+      'Para guardar senhas',
+      'Para deixar o site bonito: cores, fontes e layout',
+      'Para enviar e-mails',
+      'Para gravar vídeos',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'CSS é responsável pelo visual do site — sem ele, as páginas ficariam sem estilo, só com texto puro.',
+  },
+  {
+    id: 'q10-python',
+    category: 'algoritmos',
+    prompt: 'O que é "Python"?',
+    options: [
+      'Um tipo de cobra apenas',
+      'Uma linguagem de programação muito usada, inclusive em IA',
+      'Um modelo de celular',
+      'Um antivírus',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Python é uma das linguagens mais usadas no mundo, famosa por ser fácil de aprender.',
+  },
+  {
+    id: 'q11-software',
+    category: 'algoritmos',
+    prompt: 'O que é um "software"?',
+    options: [
+      'A parte física do computador',
+      'Um programa de computador',
+      'O cabo que liga o mouse',
+      'A tela do computador',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Softwares são os programas: sistemas operacionais, aplicativos, jogos e sites.',
+  },
+  {
+    id: 'q12-hardware',
+    category: 'algoritmos',
+    prompt: 'O que é "hardware"?',
+    options: [
+      'A parte física do computador (teclado, tela, processador)',
+      'Um programa antivírus',
+      'Um tipo de senha',
+      'Um site de jogos',
+    ],
+    correctOptionIndex: 0,
+    funFact: 'Hardware é tudo que você pode tocar no computador: monitor, teclado, mouse, processador.',
+  },
+  {
+    id: 'q13-condicional',
+    category: 'algoritmos',
+    prompt: 'Uma estrutura de "se... então..." em um programa serve para quê?',
+    options: [
+      'Tocar música',
+      'Tomar decisões, executando algo somente se uma condição for verdadeira',
+      'Formatar o computador',
+      'Conectar o Wi-Fi',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'É assim que os programas "decidem" o que fazer, igual a nós: "se chover, então levo guarda-chuva".',
+  },
+  {
+    id: 'q14-funcao',
+    category: 'algoritmos',
+    prompt: 'O que é uma "função" na programação?',
+    options: [
+      'Um bloco de código reutilizável que executa uma tarefa específica',
+      'Um botão do teclado',
+      'Um tipo de vírus',
+      'A marca do computador',
+    ],
+    correctOptionIndex: 0,
+    funFact: 'Funções evitam repetir o mesmo código várias vezes: você escreve uma vez e reaproveita sempre que precisar.',
+  },
+
+  // ── História da computação ──────────────────────────────────────────
+  {
+    id: 'q15-eniac-nome',
     category: 'historia',
     prompt: 'Qual foi o primeiro computador do mundo, criado em 1945?',
     options: ['ENIAC', 'iPhone', 'Atari', 'MacBook'],
     correctOptionIndex: 0,
-    funFact:
-      'O ENIAC tinha quase 18.000 válvulas, esquentava muito e nem tinha monitor ou mouse!',
+    funFact: 'O ENIAC tinha quase 18.000 válvulas, esquentava muito e nem tinha monitor ou mouse!',
   },
   {
-    id: 'q4-eniac-tamanho',
+    id: 'q16-eniac-tamanho',
     category: 'historia',
     prompt: 'Comparado aos computadores de hoje, como era o ENIAC?',
     options: [
@@ -57,11 +216,18 @@ export const QUESTIONS: readonly Question[] = [
       'Cabia dentro de uma mochila',
     ],
     correctOptionIndex: 1,
-    funFact:
-      'O ENIAC era tão grande e esquentava tanto que precisava de sistemas gigantes de resfriamento para não derreter.',
+    funFact: 'O ENIAC era tão grande e esquentava tanto que precisava de sistemas gigantes de resfriamento para não derreter.',
   },
   {
-    id: 'q5-decada-1940',
+    id: 'q17-eniac-valvulas',
+    category: 'historia',
+    prompt: 'Aproximadamente quantas válvulas o ENIAC tinha?',
+    options: ['18', '180', '1.800', '18.000'],
+    correctOptionIndex: 3,
+    funFact: 'Quase 18.000 válvulas trabalhando juntas — e sem nenhum monitor para mostrar o resultado!',
+  },
+  {
+    id: 'q18-decada-1940',
     category: 'historia',
     prompt: 'Na década de 1940, como as instruções eram dadas às máquinas?',
     options: [
@@ -71,11 +237,36 @@ export const QUESTIONS: readonly Question[] = [
       'Pela internet',
     ],
     correctOptionIndex: 2,
-    funFact:
-      'Antes dos teclados e telas, programar significava perfurar cartões manualmente para controlar as máquinas!',
+    funFact: 'Antes dos teclados e telas, programar significava perfurar cartões manualmente para controlar as máquinas!',
   },
   {
-    id: 'q6-hoje-ia',
+    id: 'q19-decada-1990',
+    category: 'historia',
+    prompt: 'O que marcou a década de 1990 na tecnologia, segundo a linha do tempo do Clube?',
+    options: [
+      'A chegada da eletricidade',
+      'O surgimento de sites dinâmicos e a conexão de pessoas pelo mundo',
+      'A invenção da roda',
+      'O fim dos computadores',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Nos anos 1990, a internet começou a conectar pessoas do mundo inteiro através de sites dinâmicos.',
+  },
+  {
+    id: 'q20-decada-2010',
+    category: 'historia',
+    prompt: 'O que caracterizou a década de 2010 na tecnologia?',
+    options: [
+      'A programação migrou para o bolso das pessoas, com os smartphones',
+      'O fim da internet',
+      'A extinção dos computadores',
+      'O surgimento do primeiro computador',
+    ],
+    correctOptionIndex: 0,
+    funFact: 'Com os smartphones, todo mundo passou a carregar um "computador" completo no bolso.',
+  },
+  {
+    id: 'q21-hoje-ia',
     category: 'historia',
     prompt: 'O que marca a era atual da tecnologia, segundo a linha do tempo do Clube?',
     options: [
@@ -85,20 +276,36 @@ export const QUESTIONS: readonly Question[] = [
       'O fim da internet',
     ],
     correctOptionIndex: 1,
-    funFact:
-      'Hoje vivemos a revolução da IA: algoritmos autônomos capazes de conversar, criar textos e imagens.',
+    funFact: 'Hoje vivemos a revolução da IA: algoritmos autônomos capazes de conversar, criar textos e imagens.',
   },
   {
-    id: 'q7-vagas-mercado',
+    id: 'q22-ada-lovelace',
+    category: 'historia',
+    prompt: 'Quem é considerada a primeira programadora da história?',
+    options: ['Marie Curie', 'Ada Lovelace', 'Cleópatra', 'Rosalind Franklin'],
+    correctOptionIndex: 1,
+    funFact: 'No século XIX, Ada Lovelace já escrevia algoritmos para uma máquina que nem havia sido construída ainda!',
+  },
+  {
+    id: 'q23-ia-sigla',
+    category: 'historia',
+    prompt: 'O que significa a sigla "IA", tão usada hoje em dia?',
+    options: ['Internet Avançada', 'Inteligência Artificial', 'Informática Aplicada', 'Ideia Automática'],
+    correctOptionIndex: 1,
+    funFact: 'Inteligência Artificial é a área que cria sistemas capazes de aprender e tomar decisões.',
+  },
+
+  // ── Mercado de trabalho ──────────────────────────────────────────────
+  {
+    id: 'q24-vagas-mercado',
     category: 'mercado',
     prompt: 'Segundo estimativas, quantas vagas de tecnologia podem ficar sem profissionais no Brasil até 2025?',
     options: ['5 mil', '50 mil', '530 mil', '5 milhões'],
     correctOptionIndex: 2,
-    funFact:
-      'São cerca de 530 mil vagas! Por isso aprender a programar hoje é uma das melhores apostas para o futuro.',
+    funFact: 'São cerca de 530 mil vagas! Por isso aprender a programar hoje é uma das melhores apostas para o futuro.',
   },
   {
-    id: 'q8-trabalho-remoto',
+    id: 'q25-trabalho-remoto',
     category: 'mercado',
     prompt: 'Para trabalhar com tecnologia, é obrigatório morar em uma grande cidade?',
     options: [
@@ -108,20 +315,67 @@ export const QUESTIONS: readonly Question[] = [
       'Só depois dos 30 anos',
     ],
     correctOptionIndex: 1,
-    funFact:
-      'A tecnologia não tem barreiras geográficas: dá para morar em Marabá e trabalhar remotamente para o mundo todo.',
+    funFact: 'A tecnologia não tem barreiras geográficas: dá para morar em Marabá e trabalhar remotamente para o mundo todo.',
   },
   {
-    id: 'q9-areas-atuacao',
+    id: 'q26-o-que-e-remoto',
+    category: 'mercado',
+    prompt: 'O que significa "trabalho remoto"?',
+    options: [
+      'Trabalhar controlando um robô',
+      'Trabalhar de qualquer lugar, sem precisar ir a um escritório',
+      'Trabalhar apenas de madrugada',
+      'Trabalhar sem usar computador',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Muitos profissionais de tecnologia trabalham de casa, de outra cidade ou até de outro país.',
+  },
+  {
+    id: 'q27-moedas',
+    category: 'mercado',
+    prompt: 'Quais moedas foram citadas como possíveis formas de ganho em um trabalho remoto internacional?',
+    options: ['Real e Peso', 'Dólar ou euro', 'Apenas Real', 'Bitcoin apenas'],
+    correctOptionIndex: 1,
+    funFact: 'Trabalhando remoto para empresas de fora, é possível receber em dólar ou euro, mesmo morando no interior do Brasil.',
+  },
+  {
+    id: 'q28-barreiras',
+    category: 'mercado',
+    prompt: 'Por que a localização geográfica deixou de ser uma barreira para trabalhar com tecnologia?',
+    options: [
+      'Porque os computadores ficaram mais baratos',
+      'Por causa do trabalho remoto através da internet',
+      'Porque não existem mais escritórios',
+      'Porque todo mundo mora na mesma cidade',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Com uma boa conexão de internet, um programador pode colaborar com times do mundo inteiro.',
+  },
+  {
+    id: 'q29-soft-skill',
+    category: 'mercado',
+    prompt: 'Além de programar bem, o que também é muito valorizado no mercado de tecnologia?',
+    options: [
+      'Trabalhar sozinho sempre',
+      'Trabalho em equipe e aprendizado contínuo',
+      'Nunca fazer perguntas',
+      'Usar apenas um tipo de computador',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Saber colaborar e continuar aprendendo é tão importante quanto o conhecimento técnico.',
+  },
+
+  // ── Áreas de atuação ─────────────────────────────────────────────────
+  {
+    id: 'q30-areas-atuacao',
     category: 'areas',
     prompt: 'Qual das opções abaixo é uma área de atuação para quem programa?',
     options: ['Culinária internacional', 'Inteligência Artificial', 'Corte de cabelo', 'Costura'],
     correctOptionIndex: 1,
-    funFact:
-      'Além de IA, dá para atuar com Mobile & Web, Criação de Jogos, Cybersegurança, Telecomunicações e Automação.',
+    funFact: 'Além de IA, dá para atuar com Mobile & Web, Criação de Jogos, Cybersegurança, Telecomunicações e Automação.',
   },
   {
-    id: 'q10-areas-jogos',
+    id: 'q31-areas-jogos',
     category: 'areas',
     prompt: 'Quem gosta de jogos eletrônicos pode trabalhar programando na área de...',
     options: ['Criação de Jogos', 'Jardinagem', 'Transporte rodoviário', 'Nutrição'],
@@ -129,7 +383,70 @@ export const QUESTIONS: readonly Question[] = [
     funFact: 'Criação de Jogos é uma das áreas mais procuradas por quem ama games e tecnologia!',
   },
   {
-    id: 'q11-clube-o-que-e',
+    id: 'q32-cyberseguranca',
+    category: 'areas',
+    prompt: 'Qual área de tecnologia cuida da proteção de dados e sistemas contra ataques?',
+    options: ['Cybersegurança', 'Culinária', 'Design de moda', 'Zootecnia'],
+    correctOptionIndex: 0,
+    funFact: 'Profissionais de Cybersegurança protegem empresas, bancos e pessoas contra hackers e vazamento de dados.',
+  },
+  {
+    id: 'q33-mobile-web',
+    category: 'areas',
+    prompt: 'Qual área trabalha com a criação de aplicativos para celular e sites?',
+    options: ['Mobile & Web', 'Agropecuária', 'Turismo', 'Marcenaria'],
+    correctOptionIndex: 0,
+    funFact: 'Se você usa aplicativos de rede social ou de mensagens, eles foram criados por profissionais de Mobile & Web.',
+  },
+  {
+    id: 'q34-telecom',
+    category: 'areas',
+    prompt: 'Qual área envolve redes, antenas e conexão à distância?',
+    options: ['Telecomunicações', 'Odontologia', 'Arquitetura de interiores', 'Fotografia'],
+    correctOptionIndex: 0,
+    funFact: 'Telecomunicações é a área responsável por fazer sinais de internet e celular chegarem até você.',
+  },
+  {
+    id: 'q35-automacao',
+    category: 'areas',
+    prompt: 'Qual área usa máquinas e programas para substituir tarefas repetitivas?',
+    options: ['Automação', 'Culinária', 'Dança', 'Geografia'],
+    correctOptionIndex: 0,
+    funFact: 'A Automação está presente em fábricas, casas inteligentes e até em robôs aspiradores de pó.',
+  },
+  {
+    id: 'q36-ia-atua',
+    category: 'areas',
+    prompt: 'Quem trabalha com Inteligência Artificial pode desenvolver o quê?',
+    options: [
+      'Apenas desenhos em papel',
+      'Sistemas que aprendem com dados e tomam decisões',
+      'Somente jogos de tabuleiro',
+      'Livros impressos',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Assistentes virtuais, recomendação de vídeos e chatbots são exemplos de sistemas de IA no dia a dia.',
+  },
+  {
+    id: 'q37-area-gosto',
+    category: 'areas',
+    prompt: 'Se você gosta de criar histórias interativas e desafios visuais, qual área combina mais?',
+    options: ['Criação de Jogos', 'Contabilidade', 'Direito', 'Veterinária'],
+    correctOptionIndex: 0,
+    funFact: 'A Criação de Jogos une programação, arte, som e narrativa em um só projeto.',
+  },
+  {
+    id: 'q38-varias-areas',
+    category: 'areas',
+    prompt: 'Segundo o Clube, além das áreas citadas, existem quantas outras oportunidades na tecnologia?',
+    options: ['Nenhuma outra', 'Muitas outras áreas', 'Só mais uma', 'Zero'],
+    correctOptionIndex: 1,
+    funFact: 'A tecnologia é tão ampla que sempre surgem novas áreas e especializações.',
+  },
+
+  // ── Sobre o Clube de Programação ──────────────────────────────────────
+  {
+    id: 'q39-clube-o-que-e',
     category: 'clube',
     prompt: 'O que é o Clube de Programação?',
     options: [
@@ -139,11 +456,10 @@ export const QUESTIONS: readonly Question[] = [
       'Uma rede social',
     ],
     correctOptionIndex: 1,
-    funFact:
-      'O Clube é uma comunidade de alunos da UNIFESSPA que preza pela colaboração, trabalho em equipe e aprendizado.',
+    funFact: 'O Clube é uma comunidade de alunos da UNIFESSPA que preza pela colaboração, trabalho em equipe e aprendizado.',
   },
   {
-    id: 'q12-clube-objetivo',
+    id: 'q40-clube-objetivo',
     category: 'clube',
     prompt: 'Qual é o objetivo principal do Clube de Programação?',
     options: [
@@ -156,7 +472,7 @@ export const QUESTIONS: readonly Question[] = [
     funFact: 'Democratizar o conhecimento tecnológico significa levar esse saber a todas as pessoas, de graça.',
   },
   {
-    id: 'q13-clube-atividades',
+    id: 'q41-clube-atividades',
     category: 'clube',
     prompt: 'O que o Clube de Programação oferece para quem participa?',
     options: [
@@ -166,11 +482,10 @@ export const QUESTIONS: readonly Question[] = [
       'Passagens aéreas',
     ],
     correctOptionIndex: 1,
-    funFact:
-      'Nos hackathons, os participantes criam um protótipo em equipe, do zero, em torno de um tema central.',
+    funFact: 'Nos hackathons, os participantes criam um protótipo em equipe, do zero, em torno de um tema central.',
   },
   {
-    id: 'q14-clube-materiais',
+    id: 'q42-clube-materiais',
     category: 'clube',
     prompt: 'Onde é possível encontrar aulas e materiais de apoio do Clube?',
     options: [
@@ -181,5 +496,94 @@ export const QUESTIONS: readonly Question[] = [
     ],
     correctOptionIndex: 1,
     funFact: 'As aulas ficam disponíveis gratuitamente em youtube.com/@clubedeprogramacao.',
+  },
+  {
+    id: 'q43-clube-quem-participa',
+    category: 'clube',
+    prompt: 'Quem pode participar do Clube de Programação?',
+    options: [
+      'Só quem já sabe programar muito bem',
+      'Qualquer pessoa que goste de tecnologia, de qualquer curso ou nível',
+      'Apenas professores',
+      'Somente maiores de 30 anos',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'O Clube reúne pessoas com diferentes níveis de conhecimento, de iniciantes a mais experientes.',
+  },
+  {
+    id: 'q44-clube-universidade',
+    category: 'clube',
+    prompt: 'A qual universidade o Clube de Programação está ligado?',
+    options: ['USP', 'UNIFESSPA', 'UFRJ', 'UnB'],
+    correctOptionIndex: 1,
+    funFact: 'O Clube nasceu na Universidade Federal do Sul e Sudeste do Pará (UNIFESSPA).',
+  },
+  {
+    id: 'q45-clube-desafios',
+    category: 'clube',
+    prompt: 'O que são os "Desafios da Semana" do Clube de Programação?',
+    options: [
+      'Provas obrigatórias com nota',
+      'Questões de lógica que testam o raciocínio dos participantes',
+      'Torneios de videogame',
+      'Sorteios de prêmios',
+    ],
+    correctOptionIndex: 1,
+    funFact: 'Os desafios semanais têm níveis iniciante e intermediário, para todo mundo praticar lógica.',
+  },
+  {
+    id: 'q46-clube-hackathon',
+    category: 'clube',
+    prompt: 'O que os participantes criam durante um hackathon do Clube?',
+    options: [
+      'Um protótipo em equipe, do zero, com um tema central',
+      'Um álbum de fotos',
+      'Uma receita culinária',
+      'Um mural de pinturas',
+    ],
+    correctOptionIndex: 0,
+    funFact: 'Hackathons são maratonas de criação: em pouco tempo, equipes desenvolvem um projeto completo do zero.',
+  },
+  {
+    id: 'q47-clube-instagram',
+    category: 'clube',
+    prompt: 'Onde é possível seguir o Clube de Programação nas redes sociais?',
+    options: [
+      'Instagram @clubedeprogramacaounifesspa',
+      'Apenas por carta',
+      'Não tem redes sociais',
+      'Somente por telefone fixo',
+    ],
+    correctOptionIndex: 0,
+    funFact: 'Siga @clubedeprogramacaounifesspa no Instagram para acompanhar novidades, eventos e desafios!',
+  },
+  {
+    id: 'q48-clube-lema',
+    category: 'clube',
+    prompt: 'Qual é a mensagem final apresentada pelo Clube nos slides?',
+    options: [
+      '"Juntos, do aprendizado à prática!"',
+      '"Cada um por si"',
+      '"Tecnologia é só para poucos"',
+      '"Fim de jogo"',
+    ],
+    correctOptionIndex: 0,
+    funFact: 'Essa frase resume o espírito do Clube: aprender junto e colocar a mão na massa.',
+  },
+  {
+    id: 'q49-clube-discord',
+    category: 'clube',
+    prompt: 'Além do Instagram e do YouTube, em qual outra plataforma o Clube reúne a comunidade?',
+    options: ['Discord', 'Fax', 'Rádio AM', 'Telégrafo'],
+    correctOptionIndex: 0,
+    funFact: 'O Discord do Clube é onde a comunidade tira dúvidas, troca ideias e acompanha as atividades em tempo real.',
+  },
+  {
+    id: 'q50-clube-engenharia',
+    category: 'clube',
+    prompt: 'Alunos de qual curso fundaram o Clube de Programação?',
+    options: ['Engenharia da Computação', 'Educação Física', 'Letras', 'Medicina Veterinária'],
+    correctOptionIndex: 0,
+    funFact: 'O Clube nasceu de uma iniciativa de alunos de Engenharia da Computação da UNIFESSPA.',
   },
 ];
